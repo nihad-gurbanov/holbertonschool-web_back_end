@@ -29,6 +29,7 @@ def nginx_log_stats(mongo_collection):
     total_logs = mongo_collection.count_documents({})
 
     print("{} logs".format(total_logs))
+    print("Methods:")
 
     methods = ["GET", "POST", "PUT", "PATCH", "DELETE"]
     for method in methods:
