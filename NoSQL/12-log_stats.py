@@ -28,13 +28,12 @@ def nginx_log_stats(mongo_collection):
     """
     total_logs = mongo_collection.count_documents({})
 
-    print("{} logs".format(total_logs))
-    print("Methods:")
+    print("{} logs\nMethods:".format(total_logs))
 
     methods = ["GET", "POST", "PUT", "PATCH", "DELETE"]
     for method in methods:
         count = mongo_collection.count_documents({"method": method})
-        print("    method {}: {}".format(method, count))
+        print("\tmethod {}: {}".format(method, count))
 
     status_check_count = mongo_collection.count_documents(
             {"method": "GET", "path": "/status"}
