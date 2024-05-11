@@ -54,7 +54,7 @@ class Server:
                 data.append(self.__indexed_dataset[i])
 
         return {
-            "index": i,
+            "index": i - 1,
             "data": data,
             "page_size": page_size,
             "next_index": next_index
