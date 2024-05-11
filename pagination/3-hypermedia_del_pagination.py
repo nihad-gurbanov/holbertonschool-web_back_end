@@ -50,6 +50,8 @@ class Server:
                 i >= 0 and i < len(self.__indexed_dataset)
                 ), "Index out of range"
 
+        index = i if i is not None else 0
+
         data = []
         next_index = i + page_size
         for j in range(i, min(i + page_size, len(self.__indexed_dataset))):
@@ -57,7 +59,7 @@ class Server:
                 data.append(self.__indexed_dataset[j])
 
         return {
-            "index": i,
+            "index": index,
             "next_index": next_index,
             "page_size": page_size,
             "data": data,
