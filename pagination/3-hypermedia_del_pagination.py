@@ -42,15 +42,15 @@ class Server:
             }
         return self.__indexed_dataset
 
-    def get_hyper_index(self, i: int = None, page_size: int = 10) -> Dict:
+    def get_hyper_index(self, index: int = None, page_size: int = 10) -> Dict:
         """
             Return a dictionary with the following key-value pairs
         """
-        assert i is None or (
-                i >= 0 and i < len(self.__indexed_dataset)
+        assert index is None or (
+                index >= 0 and index < len(self.__indexed_dataset)
                 ), "Index out of range"
 
-        index = i if i is not None else 0
+        i = index if index is not None else 0
 
         data = []
         next_index = i + page_size
@@ -59,7 +59,7 @@ class Server:
                 data.append(self.__indexed_dataset[j])
 
         return {
-            "index": index,
+            "index": i,
             "next_index": next_index,
             "page_size": page_size,
             "data": data,
