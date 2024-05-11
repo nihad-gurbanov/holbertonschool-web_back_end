@@ -52,12 +52,12 @@ class Server:
 
         data = []
         next_index = i + page_size
-        for i in range(i, min(i + page_size, len(self.__indexed_dataset))):
-            if i in self.__indexed_dataset:
-                data.append(self.__indexed_dataset[i])
+        for j in range(i, min(i + page_size, len(self.__indexed_dataset))):
+            if j in self.__indexed_dataset:
+                data.append(self.__indexed_dataset[j])
 
         return {
-            "index": i - 1,
+            "index": i,
             "next_index": next_index,
             "page_size": page_size,
             "data": data,
