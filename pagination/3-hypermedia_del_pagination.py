@@ -43,6 +43,9 @@ class Server:
         return self.__indexed_dataset
 
     def get_hyper_index(self, i: int = None, page_size: int = 10) -> Dict:
+        """
+            Return a dictionary with the following key-value pairs
+        """
         assert i is None or (
                 i >= 0 and i < len(self.__indexed_dataset)
                 ), "Index out of range"
